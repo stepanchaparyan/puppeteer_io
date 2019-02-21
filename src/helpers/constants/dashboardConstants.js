@@ -1,14 +1,24 @@
 module.exports = {
     DASHBOARD: {
         SELECTORS: {
-            PAST_7_DAYS_TEXT_DIV: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div',
-            PAST_7_DAYS_MESSAGES: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div > div:nth-child(1)',
-            PAST_7_DAYS_NUMBER: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div > span',
-            PAST_7_DAYS_TEXT: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div > div:nth-child(3)',
-            PAST_30_DAYS_TEXT_DIV: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div',
-            PAST_30_DAYS_MESSAGES: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div > div:nth-child(1)',
-            PAST_30_DAYS_NUMBER: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div > span',
-            PAST_30_DAYS_TEXT: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div > div:nth-child(3)'
+            MESSAGES_PAST_7_DAYS_TEXT_DIV: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div',
+            MESSAGES_PAST_7_DAYS_MESSAGES: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div > div:nth-child(1)',
+            MESSAGES_PAST_7_DAYS_NUMBER: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div > span',
+            MESSAGES_PAST_7_DAYS_TEXT: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(1) > div > div:nth-child(3)',
+            MESSAGES_PAST_30_DAYS_TEXT_DIV: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div',
+            MESSAGES_PAST_30_DAYS_MESSAGES: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div > div:nth-child(1)',
+            MESSAGES_PAST_30_DAYS_NUMBER: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div > span',
+            MESSAGES_PAST_30_DAYS_TEXT: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(2) > div > div:nth-child(3)',
+            SESSIONS_PAST_30_DAYS_TEXT_DIV: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(4) > div',
+            SESSIONS_PAST_30_DAYS_SESSIONS: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(4) > div > div:nth-child(1)',
+            SESSIONS_PAST_30_DAYS_NUMBER: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(4) > div > span',
+            SESSIONS_PAST_30_DAYS_TEXT: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(4) > div > div:nth-child(3)',
+            BOTS_COUNT_DIV: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(3) > div',
+            BOTS_COUNT_TEXT: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div:nth-child(3) > div > div',
+            PLATFORM_STATUS_DIV:  'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div.col-lg-12.col-md-12.col-sm-12.col-xs-12 > div',
+            PLATFORM_STATUS_DIV_TEXT: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div.col-lg-12.col-md-12.col-sm-12.col-xs-12 > div > div.platform-status-title.dashboard-item-cornered',
+            HAVING_TROUBLES: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div.col-lg-12.col-md-12.col-sm-12.col-xs-12 > div > div.platform-status-contact',
+            CONTACT_US: 'body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div.col-lg-12.col-md-12.col-sm-12.col-xs-12 > div > div.platform-status-contact > a'
         },
         SCREENSHOTS: 'src/helpers/screenshots/dashboard'
     }

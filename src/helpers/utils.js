@@ -9,13 +9,23 @@ export default class Utils {
         this.page = page;
     }
 
-    async compareScreenshots(component) {
+    async compareScreenshots(name = 'testName', component = this.page) {
         await this.page.waitFor(1000);
-        const tester = await ScreenshotTester(0, [], {
+        const tester = await ScreenshotTester(0, [], {});
+        const result = await tester(component, name, {
+            path: path.join(`${DASHBOARD.SCREENSHOTS}`,`${name}`),
+            fullPage: false
         });
-        const result = await tester(this.page, component, {
-            path: path.join(`${DASHBOARD.SCREENSHOTS}`,`${component}`),
-            fullPage: true
+        return await result;
+    }
+
+    async compareScreenshotsWithClip(name = 'testName', options) {
+        await this.page.waitFor(1000);
+        const tester = await ScreenshotTester(0, [], {});
+        const result = await tester(this.page, name, {
+            path: path.join(`${DASHBOARD.SCREENSHOTS}`,`${name}`),
+            fullPage: false,
+            clip: options
         });
         return await result;
     }
