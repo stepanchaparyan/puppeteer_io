@@ -1,1 +1,2 @@
-import './dashboard.spec';
+//import './dashboard.spec';
+import './flowBot.spec';

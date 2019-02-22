@@ -6,7 +6,6 @@ import LoginPage from '../src/pageobjects/loginPagePO';
 let browser, page, loginPage, dashboard;
 let dashboardPage = 'dashboard';
 const viewport = {width: 1020, height: 1080};
-//const showUI = {headless: false};
 //const screenMaximized = {args: ['--start-maximized']};
 //const showSlowMotion = {headless: false, slowMo: 300};
 
@@ -15,10 +14,10 @@ const viewport = {width: 1020, height: 1080};
 describe('Dashboard page elements existing', () => {
     before(async() => {
         //browser = await puppeteer.launch({headless: false, args: ['--start-maximized']});
-        browser = await puppeteer.launch({ignoreHTTPSErrors: true});
+        browser = await puppeteer.launch({ignoreHTTPSErrors: true, headless: true});
         page = await browser.newPage();
         await page.setViewport(viewport);
-        dashboard = new Dashboard(page);
+        dashboard = new Dashboard(page, browser);
         loginPage = new LoginPage(page);
         await loginPage.open(dashboardPage);
         await loginPage.logIn();
@@ -27,7 +26,7 @@ describe('Dashboard page elements existing', () => {
         await browser.close();
     });
     context('Full page',() => {
-        it('pageTitle is Dashboard', async() => {
+        it('PAGE_TITLE is Dashboard', async() => {
             expect(await dashboard.pageTitle()).to.equal('Dashboard');
         });
         it('PLATFORM_STATUS_COLORS', async() => {
@@ -35,7 +34,7 @@ describe('Dashboard page elements existing', () => {
         });
     });
 
-    context.skip('Check - Messages Past 7 Days section', () => {
+    context('Check - Messages Past 7 Days section', () => {
         it('MESSAGES PAST 7 DAYS DIV - Exist', async() => {
             expect(await dashboard.MESSAGES_PAST_7_DAYS_DIV_Exist()).to.equal(true);
         });
@@ -50,7 +49,7 @@ describe('Dashboard page elements existing', () => {
         });
     });
 
-    context.skip('Check - Messages Past 30 Days section', () => {
+    context('Check - Messages Past 30 Days section', () => {
         it('MESSAGES PAST 30 DAYS DIV - Exist', async() => {
             expect(await dashboard.MESSAGES_PAST_30_DAYS_DIV_Exist()).to.equal(true);
         });
@@ -65,7 +64,7 @@ describe('Dashboard page elements existing', () => {
         });
     });
 
-    context.skip('Check - Sessions Past 30 Days section', () => {
+    context('Check - Sessions Past 30 Days section', () => {
         it('SESSIONS PAST 30 DAYS DIV - Exist', async() => {
             expect(await dashboard.SESSIONS_PAST_30_DAYS_DIV_Exist()).to.equal(true);
         });
@@ -110,7 +109,21 @@ describe('Dashboard page elements existing', () => {
         });
     });
 
+    context('Check - ChatBot', () => {
+        it('chatBotUI', async() => {
+            expect(await dashboard.chatBotUI()).to.equal(true);
+        });
+        it('chatBotTitle', async() => {
+            expect(await dashboard.chatBotTitle()).to.equal('Bob');
+        });
+        it('chatBotByIOXURL', async() => {
+            expect(await dashboard.chatBotByIOXURL()).to.equal('https://www.ioxchatbot.com/home');
+        });
+        it('chatBotConversation', async() => {
+            expect(await dashboard.chatBotConversation()).to.equal(true);
+        });
+    });
 
 });
-//}
 
+//}

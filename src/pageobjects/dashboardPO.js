@@ -6,8 +6,9 @@ import Utils from '../helpers/utils';
 
 
 export default class Dashboard {
-    constructor(page) {
+    constructor(page, browser) {
         this.page = page;
+        this.browser = browser;
         this.utils = new Utils(page);
     }
     async pageTitle() {
@@ -16,7 +17,7 @@ export default class Dashboard {
     async FOUR_DIVS_COLORS_UI() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         const options = {x: 300, y: 110, width: 160, height: 400};
-        const noDiff = this.utils.compareScreenshotsWithClip('four_div_colors', options);
+        const noDiff = await this.utils.compareScreenshotsWithClip('fourDivColors', options);
         return await noDiff;
     }
 
@@ -43,7 +44,7 @@ export default class Dashboard {
         await this.page.click(BOT_SECTION.SELECTORS.RUN);
         // wait for iframe loading
         await this.page.waitFor(3000);
-        const frame = this.page.frames().find(frame => frame.name() === 'responsiveFrame');
+        const frame = await this.page.frames().find(frame => frame.name() === 'responsiveFrame');
         const mainButton = await frame.$(IFRAME.SELECTORS.MAIN_BUTTON);
         await mainButton.click();
         await this.page.waitFor(1000);
@@ -87,7 +88,7 @@ export default class Dashboard {
         await this.page.click(BOT_SECTION.SELECTORS.RUN);
         // wait for iframe loading
         await this.page.waitFor(3000);
-        const frame = this.page.frames().find(frame => frame.name() === 'responsiveFrame');
+        const frame = await this.page.frames().find(frame => frame.name() === 'responsiveFrame');
         const mainButton = await frame.$(IFRAME.SELECTORS.MAIN_BUTTON);
         await mainButton.click();
         await this.page.waitFor(2000);
@@ -131,7 +132,7 @@ export default class Dashboard {
         await this.page.click(BOT_SECTION.SELECTORS.RUN);
         // wait for iframe loading
         await this.page.waitFor(3000);
-        const frame = this.page.frames().find(frame => frame.name() === 'responsiveFrame');
+        const frame = await this.page.frames().find(frame => frame.name() === 'responsiveFrame');
         const mainButton = await frame.$(IFRAME.SELECTORS.MAIN_BUTTON);
         await mainButton.click();
         await this.page.waitFor(2000);
@@ -174,7 +175,7 @@ export default class Dashboard {
     async PLATFORM_STATUS_DIV_UI() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         const platformStatusDiv = await this.page.$(DASHBOARD.SELECTORS.PLATFORM_STATUS_DIV);
-        const noDiff = this.utils.compareScreenshots('platform_status', platformStatusDiv);
+        const noDiff = await this.utils.compareScreenshots('platformStatus', platformStatusDiv);
         return await noDiff;
     }
     async PLATFORM_STATUS_Text() {
@@ -198,7 +199,45 @@ export default class Dashboard {
         await this.page.click(DASHBOARD.SELECTORS.CONTACT_US);
         await this.page.waitFor(1000);
         const url = this.page.url();
+        await this.page.goBack();
         return await url;
+    }
+
+    async chatBotUI() {
+        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
+        await this.page.waitFor(2000); // wait for iframe loading
+        const frame = await this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
+        const frameDiv = await frame.$(DASHBOARD.BOT.FULLBOT);
+        await this.utils.compareScreenshots('dashboardChatBot', frameDiv);
+        return await true;
+    }
+    async chatBotTitle() {
+        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
+        const frame = await this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
+        const botName = await frame.$eval(DASHBOARD.BOT.NAME, name => name.innerText);
+        return await botName;
+    }
+    async chatBotByIOXURL() {
+        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
+        const frame = await this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
+        const byIOXButton = await frame.$(DASHBOARD.BOT.BYIOXLINK);
+        await byIOXButton.click();
+        await this.page.waitFor(2000);
+        const pages = await this.browser.pages();
+        const url = await pages[2].url();
+        return await url;
+    }
+    async chatBotConversation() {
+        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
+        // wait for iframe loading
+        await this.page.waitFor(2000);
+        const frame = await this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
+        const optionTwo = await frame.$(DASHBOARD.BOT.QUESTION_FIRST_ANSWER_TWO);
+        await optionTwo.click();
+        await this.page.waitFor(2000);
+        const frameDiv = await frame.$(DASHBOARD.BOT.FULLBOT);
+        await this.utils.compareScreenshots('dashboardChatBotStepTwo', frameDiv);
+        return await true;
     }
 
 }
