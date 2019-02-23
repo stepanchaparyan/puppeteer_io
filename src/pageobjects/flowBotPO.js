@@ -14,84 +14,72 @@ export default class Dashboard {
     async test() {
         await this.page.click(NAVBAR.SELECTORS.BOTS);
         await this.page.click(BOT_SECTION.SELECTORS.CREATE_BOT);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_FLOW_BOT);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_BOT_CONTINUE);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_WEB_CHATBOT);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.BOT_NAME_INPUT, 'testBot');
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_BOT_BUTTON_AFTER_TYPE_NAME);
 
-
-        await this.utils.compareScreenshots('bot');
-        return await true;
-    }
-    async BOTS_COUNT() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
-        const botsCountText = await this.page.$eval(DASHBOARD.SELECTORS.BOTS_COUNT_TEXT, text => text.innerText);
-        const botsCount = botsCountText.substr(0,2);
-        await this.page.click(NAVBAR.SELECTORS.BOTS);
-        const botsCountsReal = await this.page.$$eval(BOT_SECTION.SELECTORS.ALL_BOTS, bots => bots.length);
-        const botsCountIsRight = Number(botsCountsReal) - 1 === Number(botsCount) ? true : false;
-        return await botsCountIsRight;
-    }
+        await this.page.click(BOT_SECTION.SELECTORS.EDIT_FIRST_QUESTION);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.REMOVE_DEFAULT_QUESTION);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.ENTER_QUESTION_INPUT, 'What is your name?');
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.ADD_ON);
+        await this.page.waitFor(500);
+        await this.page.select(BOT_SECTION.SELECTORS.CHOOSE_QUESTION_TYPE,'Freetext Feedback');
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.QUESTION_SAVE_BUTTON);
 
-    async PLATFORM_STATUS_DIV_UI() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        const platformStatusDiv = await this.page.$(DASHBOARD.SELECTORS.PLATFORM_STATUS_DIV);
-        const noDiff = this.utils.compareScreenshots('platformStatus', platformStatusDiv);
-        return await noDiff;
-    }
-    async PLATFORMS_LIST() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        const platforms = await this.page.evaluate(() => {
-            const platform = Array.from(document.querySelectorAll('body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div.col-lg-12.col-md-12.col-sm-12.col-xs-12 > div > div.platform-status-fields.dashboard-item-cornered > div'));
-            return platform.map(card => card.innerText);
-        });
-        return await platforms;
-    }
-    async TROUBLES_TEXT() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        return await this.page.$eval(DASHBOARD.SELECTORS.HAVING_TROUBLES, text => text.innerText);
-    }
-    async CONTACT_US_LINK() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        await this.page.click(DASHBOARD.SELECTORS.CONTACT_US);
-        await this.page.waitFor(1000);
-        const url = this.page.url();
-        await this.page.goBack();
-        return await url;
-    }
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.ADD_SUB_DIALOG);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.ENTER_QUESTION_INPUT, 'Would you like to continue?');
+        await this.page.click(BOT_SECTION.SELECTORS.QUESTION_SAVE_BUTTON);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_ANSWER_Q4);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.ADD_NEW_ANSWER_INPUT, 'Yes');
+        await this.page.click(BOT_SECTION.SELECTORS.SAVE_NEW_ANSWER);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_ANSWER_Q4);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.ADD_NEW_ANSWER_INPUT, 'No');
+        await this.page.click(BOT_SECTION.SELECTORS.SAVE_NEW_ANSWER);
+        await this.page.waitFor(500);
 
-    async chatBotUI() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        await this.page.waitFor(2000); // wait for iframe loading
-        const frame = this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
-        const frameDiv = await frame.$(DASHBOARD.BOT.FULLBOT);
-        await this.utils.compareScreenshots('dashboardChatBot', frameDiv);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.ADD_SUB_DIALOG);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.ENTER_QUESTION_INPUT, 'You are a man or woman?');
+        await this.page.click(BOT_SECTION.SELECTORS.ADD_ON);
+        await this.page.waitFor(500);
+        await this.page.select(BOT_SECTION.SELECTORS.CHOOSE_QUESTION_TYPE,'Multiple Options');
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.QUESTION_SAVE_BUTTON);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_ANSWER_Q5);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.ADD_NEW_ANSWER_INPUT, 'Boy - Man');
+        await this.page.click(BOT_SECTION.SELECTORS.SAVE_NEW_ANSWER);
+        await this.page.waitFor(500);
+        await this.page.click(BOT_SECTION.SELECTORS.CREATE_ANSWER_Q5);
+        await this.page.waitFor(500);
+        await this.page.type(BOT_SECTION.SELECTORS.ADD_NEW_ANSWER_INPUT, 'Girl - Woman');
+        await this.page.click(BOT_SECTION.SELECTORS.SAVE_NEW_ANSWER);
+        await this.page.waitFor(500);
+
+
+        await this.utils.compareScreenshots('flowBot', 'bot6');
         return await true;
     }
-    async chatBotTitle() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        const frame = this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
-        const botName = await frame.$eval(DASHBOARD.BOT.NAME, name => name.innerText);
-        return await botName;
-    }
-    async chatBotByIOXURL() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        const frame = this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
-        const byIOXButton = await frame.$(DASHBOARD.BOT.BYIOXLINK);
-        await byIOXButton.click();
-        await this.page.waitFor(2000);
-        const pages = await this.browser.pages();
-        const url = await pages[2].url();
-        return await url;
-    }
-    async chatBotConversation() {
-        await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        // wait for iframe loading
-        await this.page.waitFor(2000);
-        const frame = this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
-        const optionTwo = await frame.$(DASHBOARD.BOT.QUESTION_FIRST_ANSWER_TWO);
-        await optionTwo.click();
-        await this.page.waitFor(2000);
-        const frameDiv = await frame.$(DASHBOARD.BOT.FULLBOT);
-        await this.utils.compareScreenshots('dashboardChatBotStepTwo', frameDiv);
-        return await true;
-    }
+
 
 }

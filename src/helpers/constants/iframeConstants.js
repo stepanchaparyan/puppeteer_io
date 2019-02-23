@@ -6,7 +6,6 @@ module.exports = {
             AGREEMENT_CONFIRM_BUTTON: 'body > app-root > div > chat-window > div > div.ng-tns-c1-0.ng-trigger.ng-trigger-cyrcleAnimation > div > app-agreement > div > div.agreement-buttons > button.agree-button.btn-primary',
             GOOGLE: 'body > app-root > div > chat-window > div > div.ng-tns-c1-0.ng-trigger.ng-trigger-cyrcleAnimation > div > div.chat-container.ng-tns-c1-0.ng-star-inserted > div.ans-container-base > chat-select > div > div.chat-select > div > div > button:nth-child(2)'
 
-        },
-        SCREENSHOTS: 'src/helpers/screenshots/dashboard'
+        }
     }
 };

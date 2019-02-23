@@ -25,7 +25,6 @@ module.exports = {
             NAME: 'body > app-root > div > iox-chat-window > div > div > div.panel-heading.top-bar > div > h3',
             BYIOXLINK: 'body > app-root > div > iox-chat-window > div > div > div.panel-heading.top-bar > div > a > img',
             QUESTION_FIRST_ANSWER_TWO: 'body > app-root > div > iox-chat-window > div > div > div.ans-container-base > chat-select > div.chat-select > div > div > button:nth-child(2)'
-        },
-        SCREENSHOTS: 'src/helpers/screenshots/dashboard'
+        }
     }
 };

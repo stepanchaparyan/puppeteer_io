@@ -26,86 +26,86 @@ describe('Dashboard page elements existing', () => {
         await browser.close();
     });
     context('Full page',() => {
-        it('PAGE_TITLE is Dashboard', async() => {
+        it('page title is Dashboard', async() => {
             expect(await dashboard.pageTitle()).to.equal('Dashboard');
         });
-        it('PLATFORM_STATUS_COLORS', async() => {
-            expect(await dashboard.FOUR_DIVS_COLORS_UI()).to.equal(true);
+        it('platform status colors', async() => {
+            expect(await dashboard.fourDivsColorsUI()).to.equal(true);
         });
     });
 
     context('Check - Messages Past 7 Days section', () => {
-        it('MESSAGES PAST 7 DAYS DIV - Exist', async() => {
-            expect(await dashboard.MESSAGES_PAST_7_DAYS_DIV_Exist()).to.equal(true);
+        it('messages past 7 days div exist', async() => {
+            expect(await dashboard.messagesPast7DaysExist()).to.equal(true);
         });
-        it('MESSAGES PAST 7 DAYS DIV - Text: MESSAGES', async() => {
-            expect(await dashboard.MESSAGES_PAST_7_DAYS_MESSAGES()).to.equal('MESSAGES');
+        it('messages past 7 days div - messages', async() => {
+            expect(await dashboard.messagesPast7DaysMessages()).to.equal('MESSAGES');
         });
-        it('MESSAGES PAST 7 DAYS DIV - Text: Number', async() => {
-            expect(await dashboard.MESSAGES_PAST_7_DAYS_NUMBER()).to.equal(true);
+        it('messages past 7 days div - number', async() => {
+            expect(await dashboard.messagesPast7DaysNumber()).to.equal(true);
         });
-        it('MESSAGES PAST 7 DAYS DIV - Text: Past 7 Days', async() => {
-            expect(await dashboard.MESSAGES_PAST_7_DAYS_TEXT()).to.equal('Past 7 Days');
+        it('messages past 7 days div - past 7 days', async() => {
+            expect(await dashboard.messagesPast7DaysText()).to.equal('Past 7 Days');
         });
     });
 
     context('Check - Messages Past 30 Days section', () => {
-        it('MESSAGES PAST 30 DAYS DIV - Exist', async() => {
-            expect(await dashboard.MESSAGES_PAST_30_DAYS_DIV_Exist()).to.equal(true);
+        it('messages past 30 days div exist', async() => {
+            expect(await dashboard.messagesPast30DaysExist()).to.equal(true);
         });
-        it('MESSAGES PAST 30 DAYS DIV - Text: MESSAGES', async() => {
-            expect(await dashboard.MESSAGES_PAST_30_DAYS_MESSAGES()).to.equal('MESSAGES');
+        it('messages past 30 days div - messages', async() => {
+            expect(await dashboard.messagesPast30DaysMessages()).to.equal('MESSAGES');
         });
-        it('MESSAGES PAST 30 DAYS DIV - Text: Number', async() => {
-            expect(await dashboard.MESSAGES_PAST_30_DAYS_NUMBER()).to.equal(true);
+        it('messages past 30 days div - number', async() => {
+            expect(await dashboard.messagesPast30DaysNumber()).to.equal(true);
         });
-        it('MESSAGES PAST 30 DAYS DIV - Text: Past 30 Days', async() => {
-            expect(await dashboard.MESSAGES_PAST_30_DAYS_TEXT()).to.equal('Past 30 Days');
+        it('messages past 30 days div - past 30 days', async() => {
+            expect(await dashboard.messagesPast30DaysText()).to.equal('Past 30 Days');
         });
     });
 
     context('Check - Sessions Past 30 Days section', () => {
-        it('SESSIONS PAST 30 DAYS DIV - Exist', async() => {
-            expect(await dashboard.SESSIONS_PAST_30_DAYS_DIV_Exist()).to.equal(true);
+        it('sessions past 30 days div - exist', async() => {
+            expect(await dashboard.sessionsPast30DaysExist()).to.equal(true);
         });
-        it('SESSIONS PAST 30 DAYS DIV - Text: Sessions', async() => {
-            expect(await dashboard.SESSIONS_PAST_30_DAYS_SESSIONS()).to.equal('SESSIONS');
+        it('sessions past 30 days div - sessions', async() => {
+            expect(await dashboard.sessionsPast30DaysSessions()).to.equal('SESSIONS');
         });
-        it('SESSIONS PAST 30 DAYS DIV - Text: Number', async() => {
-            expect(await dashboard.SESSIONS_PAST_30_DAYS_NUMBER()).to.equal(true);
+        it('sessions past 30 days div - number', async() => {
+            expect(await dashboard.sessionsPast30DaysNumber()).to.equal(true);
         });
-        it('SESSIONS PAST 30 DAYS DIV - Text: Past 30 Days', async() => {
-            expect(await dashboard.SESSIONS_PAST_30_DAYS_TEXT()).to.equal('Past 30 Days');
+        it('sessions past 30 days div - past 30 days', async() => {
+            expect(await dashboard.sessionsPast30DaysText()).to.equal('Past 30 Days');
         });
     });
 
     context('Check - Bots Count section', () => {
-        it('BOTS_COUNT DIV - Exist', async() => {
-            expect(await dashboard.BOTS_COUNT_DIV_Exist()).to.equal(true);
+        it('bost count div - Exist', async() => {
+            expect(await dashboard.botsCountDivExist()).to.equal(true);
         });
-        it('BOTS_COUNT_Text', async() => {
-            expect(await dashboard.BOTS_COUNT_DIV_Text()).to.include('out of 10 bots used');
+        it('bots count text', async() => {
+            expect(await dashboard.botsCountDivText()).to.include('out of 10 bots used');
         });
-        it('BOTS_COUNT', async() => {
-            expect(await dashboard.BOTS_COUNT()).to.equal(true);
+        it('bots count', async() => {
+            expect(await dashboard.botsCount()).to.equal(true);
         });
     });
 
-    context('Check - Platform Status section ', () => {
-        it('PLATFORM_STATUS_UI', async() => {
-            expect(await dashboard.PLATFORM_STATUS_DIV_UI()).to.equal(true);
+    context('Check - platform Status section ', () => {
+        it('platform status UI', async() => {
+            expect(await dashboard.platformStatusDivUI()).to.equal(true);
         });
-        it('PLATFORM_STATUS_Text', async() => {
-            expect(await dashboard.PLATFORM_STATUS_Text()).to.equal(' Platform Status');
+        it('platform status text', async() => {
+            expect(await dashboard.platformStatusText()).to.equal(' Platform Status');
         });
-        it('PLATFORMS_LIST', async() => {
-            expect(await dashboard.PLATFORMS_LIST()).to.deep.equal([ ' Core',' Api',' Email',' WebChat',' SMS',' Facebook',' WhatsApp',' Slack' ]);
+        it('platforms list', async() => {
+            expect(await dashboard.platformsList()).to.deep.equal([ ' Core',' Api',' Email',' WebChat',' SMS',' Facebook',' WhatsApp',' Slack' ]);
         });
-        it('HAVING_TROUBLES_Text', async() => {
-            expect(await dashboard.TROUBLES_TEXT()).to.equal(' Having troubles? Contact us.');
+        it('having troubles text', async() => {
+            expect(await dashboard.troublesText()).to.equal(' Having troubles? Contact us.');
         });
-        it('CONTACT_US_LINK', async() => {
-            expect(await dashboard.CONTACT_US_LINK()).to.equal('https://ioxlab.atlassian.net/servicedesk/customer/portals');
+        it('contact us link', async() => {
+            expect(await dashboard.contactUsLink()).to.equal('https://ioxlab.atlassian.net/servicedesk/customer/portals');
         });
     });
 

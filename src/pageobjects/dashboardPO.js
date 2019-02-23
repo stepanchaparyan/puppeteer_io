@@ -14,26 +14,26 @@ export default class Dashboard {
     async pageTitle() {
         return await this.page.title();
     }
-    async FOUR_DIVS_COLORS_UI() {
+    async fourDivsColorsUI() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         const options = {x: 300, y: 110, width: 160, height: 400};
-        const noDiff = await this.utils.compareScreenshotsWithClip('fourDivColors', options);
+        const noDiff = await this.utils.compareScreenshotsWithClip('dashboard','fourDivColors', options);
         return await noDiff;
     }
 
-    async MESSAGES_PAST_7_DAYS_DIV_Exist() {
+    async messagesPast7DaysExist() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$(DASHBOARD.SELECTORS.MESSAGES_PAST_7_DAYS_TEXT_DIV) !== null;
     }
-    async MESSAGES_PAST_7_DAYS_MESSAGES() {
+    async messagesPast7DaysMessages() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_7_DAYS_MESSAGES, text => text.innerText);
     }
-    async MESSAGES_PAST_7_DAYS_TEXT() {
+    async messagesPast7DaysText() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_7_DAYS_TEXT, text => text.innerText);
     }
-    async MESSAGES_PAST_7_DAYS_NUMBER() {
+    async messagesPast7DaysNumber() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
         const messagesCountBefore = await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_7_DAYS_NUMBER, text => text.innerText);
@@ -65,19 +65,19 @@ export default class Dashboard {
         return await addedOneMessage;
     }
 
-    async MESSAGES_PAST_30_DAYS_DIV_Exist() {
+    async messagesPast30DaysExist() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$(DASHBOARD.SELECTORS.MESSAGES_PAST_30_DAYS_TEXT_DIV) !== null;
     }
-    async MESSAGES_PAST_30_DAYS_MESSAGES() {
+    async messagesPast30DaysMessages() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_30_DAYS_MESSAGES, text => text.innerText);
     }
-    async MESSAGES_PAST_30_DAYS_TEXT() {
+    async messagesPast30DaysText() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_30_DAYS_TEXT, text => text.innerText);
     }
-    async MESSAGES_PAST_30_DAYS_NUMBER() {
+    async messagesPast30DaysNumber() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
         const messagesCountBefore = await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_30_DAYS_NUMBER, text => text.innerText);
@@ -109,19 +109,19 @@ export default class Dashboard {
         return await addedOneMessage;
     }
 
-    async SESSIONS_PAST_30_DAYS_DIV_Exist() {
+    async sessionsPast30DaysExist() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$(DASHBOARD.SELECTORS.SESSIONS_PAST_30_DAYS_TEXT_DIV) !== null;
     }
-    async SESSIONS_PAST_30_DAYS_SESSIONS() {
+    async sessionsPast30DaysSessions() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.SESSIONS_PAST_30_DAYS_SESSIONS, text => text.innerText);
     }
-    async SESSIONS_PAST_30_DAYS_TEXT() {
+    async sessionsPast30DaysText() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.SESSIONS_PAST_30_DAYS_TEXT, text => text.innerText);
     }
-    async SESSIONS_PAST_30_DAYS_NUMBER() {
+    async sessionsPast30DaysNumber() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
         const messagesCountBefore = await this.page.$eval(DASHBOARD.SELECTORS.SESSIONS_PAST_30_DAYS_NUMBER, text => text.innerText);
@@ -153,15 +153,15 @@ export default class Dashboard {
         return await addedOneMessage;
     }
 
-    async BOTS_COUNT_DIV_Exist() {
+    async botsCountDivExist() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$(DASHBOARD.SELECTORS.BOTS_COUNT_DIV) !== null;
     }
-    async BOTS_COUNT_DIV_Text() {
+    async botsCountDivText() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.BOTS_COUNT_TEXT, text => text.innerText);
     }
-    async BOTS_COUNT() {
+    async botsCount() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
         const botsCountText = await this.page.$eval(DASHBOARD.SELECTORS.BOTS_COUNT_TEXT, text => text.innerText);
@@ -172,17 +172,17 @@ export default class Dashboard {
         return await botsCountIsRight;
     }
 
-    async PLATFORM_STATUS_DIV_UI() {
+    async platformStatusDivUI() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         const platformStatusDiv = await this.page.$(DASHBOARD.SELECTORS.PLATFORM_STATUS_DIV);
-        const noDiff = await this.utils.compareScreenshots('platformStatus', platformStatusDiv);
+        const noDiff = await this.utils.compareScreenshots('dashboard','platformStatus', platformStatusDiv);
         return await noDiff;
     }
-    async PLATFORM_STATUS_Text() {
+    async platformStatusText() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.PLATFORM_STATUS_DIV_TEXT, text => text.innerText);
     }
-    async PLATFORMS_LIST() {
+    async platformsList() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         const platforms = await this.page.evaluate(() => {
             const platform = Array.from(document.querySelectorAll('body > app-root > div > iox-page-container > div > iox-dashboard > div > div.col-lg-7.col-md-7.col-sm-12.col-xs-12.dashboard-column-left > div.col-lg-12.col-md-12.col-sm-12.col-xs-12 > div > div.platform-status-fields.dashboard-item-cornered > div'));
@@ -190,11 +190,11 @@ export default class Dashboard {
         });
         return await platforms;
     }
-    async TROUBLES_TEXT() {
+    async troublesText() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         return await this.page.$eval(DASHBOARD.SELECTORS.HAVING_TROUBLES, text => text.innerText);
     }
-    async CONTACT_US_LINK() {
+    async contactUsLink() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.click(DASHBOARD.SELECTORS.CONTACT_US);
         await this.page.waitFor(1000);
@@ -208,7 +208,7 @@ export default class Dashboard {
         await this.page.waitFor(2000); // wait for iframe loading
         const frame = await this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
         const frameDiv = await frame.$(DASHBOARD.BOT.FULLBOT);
-        await this.utils.compareScreenshots('dashboardChatBot', frameDiv);
+        await this.utils.compareScreenshots('dashboard', 'dashboardChatBot', frameDiv);
         return await true;
     }
     async chatBotTitle() {
@@ -236,7 +236,7 @@ export default class Dashboard {
         await optionTwo.click();
         await this.page.waitFor(2000);
         const frameDiv = await frame.$(DASHBOARD.BOT.FULLBOT);
-        await this.utils.compareScreenshots('dashboardChatBotStepTwo', frameDiv);
+        await this.utils.compareScreenshots('dashboard','dashboardChatBotStepTwo', frameDiv);
         return await true;
     }
 

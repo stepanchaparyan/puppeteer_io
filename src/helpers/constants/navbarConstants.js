@@ -7,8 +7,6 @@ module.exports = {
             KNOWLEDGES: 'body > app-root > div > iox-side-menu > div > div.site-menubar-body > ul > li:nth-child(4) > a > i',
             API_CONNECTOR: 'body > app-root > div > iox-side-menu > div > div.site-menubar-body > ul > li:nth-child(5) > a > i'
 
-        },
-        TEMPORARY_SCREENSHOTS: './src/helpers/screenshots/locationManager/temporaryScreenshots',
-        SCREENSHOTS: './src/helpers/screenshots/locationManager'
+        }
     }
 };
