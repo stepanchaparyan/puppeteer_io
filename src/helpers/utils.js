@@ -14,7 +14,7 @@ export default class Utils {
         const tester = await ScreenshotTester(0,3, [], {});
         const result = await tester(component, name, {
             path: path.join(`${src}`,`${helpers}`,`${screenshots}`,`${screenshotPath}`,`${name}`),
-            fullPage: false
+            fullPage: true
         });
         return await result;
     }
