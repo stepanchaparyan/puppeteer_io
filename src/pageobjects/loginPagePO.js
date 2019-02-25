@@ -16,6 +16,6 @@ export default class LoginPage {
         await this.page.type(LOGIN_PAGE.SELECTORS.EMAIL, CREDS.usernameS);
         await this.page.type(LOGIN_PAGE.SELECTORS.PASSWORD, CREDS.passwordS);
         await this.page.click(LOGIN_PAGE.SELECTORS.LOGIN_BUTTON);
-        await this.page.waitFor(2000);
+        await this.page.waitFor(500);
     }
 }
