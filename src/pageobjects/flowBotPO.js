@@ -1,9 +1,8 @@
 import { NAVBAR } from '../helpers/constants/navbarConstants.js';
 import { BOT_SECTION } from '../helpers/constants/botsSectionConstants.js';
 import Utils from '../helpers/utils';
-import scrollIntoView from 'scroll-into-view';
 
-export default class Dashboard {
+export default class FlowBot {
 	constructor (page, browser) {
 		this.page = page;
 		this.browser = browser;
