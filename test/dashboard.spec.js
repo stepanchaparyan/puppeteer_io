@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import {expect} from 'chai';
-import Dashboard from '../src/pageobjects/dashboardPO';
-import LoginPage from '../src/pageobjects/loginPagePO';
+import Dashboard from '../src/pageObjects/dashboardPO';
+import LoginPage from '../src/pageObjects/loginPagePO';
 
 let browser, page, loginPage, dashboard;
 let dashboardPage = 'dashboard';
@@ -80,7 +80,7 @@ describe('Dashboard page elements existing', () => {
     });
 
     context('Check - Bots Count section', () => {
-        it('bost count div - Exist', async() => {
+        it('bots count div - Exist', async() => {
             expect(await dashboard.botsCountDivExist()).to.equal(true);
         });
         it('bots count text', async() => {
@@ -116,7 +116,7 @@ describe('Dashboard page elements existing', () => {
         it('chatBotTitle', async() => {
             expect(await dashboard.chatBotTitle()).to.equal('Bob');
         });
-        it('chatBotByIOXURL', async() => {
+        it('chatBotByIOX_URL', async() => {
             expect(await dashboard.chatBotByIOXURL()).to.equal('https://www.ioxchatbot.com/home');
         });
         it('chatBotConversation', async() => {

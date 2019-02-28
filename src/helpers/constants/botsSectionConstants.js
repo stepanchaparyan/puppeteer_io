@@ -7,7 +7,7 @@ module.exports = {
 			ALL_BOTS: 'body > app-root > div > iox-page-container > div > iox-bots > div > div',
 			CREATE_FLOW_BOT: 'body > modal-container > div > div > div.modal-body.ng-star-inserted > div > iox-cb-kind-item:nth-child(1) > div > div.image-container.ng-star-inserted > img',
 			CREATE_BOT_CONTINUE: 'body > modal-container > div > div > div.modal-body.ng-star-inserted > button',
-			CREATE_WEB_CHATBOT: 'body > modal-container > div > div > div.modal-body.ng-star-inserted > div > iox-cb-kind-item:nth-child(1) > div > div.image-container.ng-star-inserted > img',
+			CREATE_WEB_CHAT_BOT: 'body > modal-container > div > div > div.modal-body.ng-star-inserted > div > iox-cb-kind-item:nth-child(1) > div > div.image-container.ng-star-inserted > img',
 			BOT_NAME_INPUT: 'body > modal-container > div > div > div.modal-body.ng-star-inserted > form > div > input',
 			CREATE_BOT_BUTTON_AFTER_TYPE_NAME: 'body > modal-container > div > div > div.modal-body.ng-star-inserted > form > div > button',
 			EDIT_FIRST_QUESTION: 'body > app-root > div > iox-page-container > div > iox-create > div > iox-conversation-tree > div > div.conversation-page > div > tree > tree-internal > ul > li > tree-internal:nth-child(3) > ul > li > div > div.node-value.ng-star-inserted > div > div > button.btn.btn-info.btn-xs.pull-right > span',
@@ -20,7 +20,7 @@ module.exports = {
 			CREATE_ANSWER_Q4: 'body > app-root > div > iox-page-container > div > iox-create > div > iox-conversation-tree > div > div.conversation-page > div > tree > tree-internal > ul > li > tree-internal:nth-child(4) > ul > li > div > div.node-value.ng-star-inserted > div > div > button.btn.btn-primary.btn-xs.pull-right > span',
 			CREATE_ANSWER_Q5: 'body > app-root > div > iox-page-container > div > iox-create > div > iox-conversation-tree > div > div.conversation-page > div > tree > tree-internal > ul > li > tree-internal:nth-child(5) > ul > li > div > div.node-value.ng-star-inserted > div > div > button.btn.btn-primary.btn-xs.pull-right > span',
 			ADD_NEW_ANSWER_INPUT: 'body > modal-container > div > div > div.modal-body > form > div > input:nth-child(1)',
-			SAVE_NEW_ANSWER: 'body > modal-container > div > div > div.modal-footer > button', // same as QUESTION SAVE DOALOG
+			SAVE_NEW_ANSWER: 'body > modal-container > div > div > div.modal-footer > button',
 			QUESTION_ON_ANSWER_BOY: 'body > app-root > div > iox-page-container > div > iox-create > div > iox-conversation-tree > div > div.conversation-page > div > tree > tree-internal > ul > li > tree-internal:nth-child(5) > ul > li > tree-internal:nth-child(2) > ul > li > div > div.node-value.ng-star-inserted > div > div > button.btn.btn-primary.btn-xs.pull-right > span',
 			QUESTION_ON_ANSWER_GIRL: 'body > app-root > div > iox-page-container > div > iox-create > div > iox-conversation-tree > div > div.conversation-page > div > tree > tree-internal > ul > li > tree-internal:nth-child(5) > ul > li > tree-internal:nth-child(3) > ul > li > div > div.node-value.ng-star-inserted > div > div > button.btn.btn-primary.btn-xs.pull-right > span',
 			FILL_WITH_EXISTING_QUESTION: 'body > modal-container > div > div > div.modal-body > form > div:nth-child(1) > select',
@@ -60,8 +60,7 @@ module.exports = {
 			SEARCH_ADD_BUTTON: 'body > modal-container > div > div > div.modal-body > form > iox-search-in-file > div > div > div > form > table > tbody > tr > td > button',
 			SEARCH_SELECT_PARAMETER_INPUT: 'body > modal-container > div > div > div.modal-body > form > iox-search-in-file > div > div > div > form > table > tbody > tr.param-object.ng-star-inserted > td:nth-child(1) > ng-select > div > div > div.ng-input > input[type="text"]',
 			SEARCH_SELECT_COLUMN_INPUT: 'body > modal-container > div > div > div.modal-body > form > iox-search-in-file > div > div > div > form > table > tbody > tr.param-object.ng-star-inserted > td:nth-child(2) > ng-select > div > div > div.ng-input > input[type="text"]',
-			SEARCH_RESULT_MESSAGE_INPUT: '#textarea-0',			
-			
+			SEARCH_RESULT_MESSAGE_INPUT: '#textarea-0'
 		}
 	}
 };

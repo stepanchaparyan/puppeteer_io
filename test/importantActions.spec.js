@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 import { expect } from 'chai';
-import FlowBot from '../src/pageobjects/flowBotPO';
-import LoginPage from '../src/pageobjects/loginPagePO';
+import FlowBot from '../src/pageObjects/importantActions';
+import LoginPage from '../src/pageObjects/loginPagePO';
 
 let browser, page, loginPage, flowBot;
 let dashboardPage = 'dashboard';
@@ -28,7 +28,7 @@ describe('Simple Flow Bot - Important Actions', () => {
 
 	context('Create Flow Bot', () => {
 		it('test', async () => {
-			expect(await flowBot.test()).to.equal(true);
+			expect(await flowBot.createBotByImportantActionDoc()).to.equal(true);
 		});
 	});
 });

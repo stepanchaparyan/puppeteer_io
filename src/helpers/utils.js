@@ -13,9 +13,9 @@ export default class Utils {
         const helpers = 'helpers';
         const screenshots = 'screenshots';
         await this.page.waitFor(1000);
-        const tester = await ScreenshotTester(0,3, [], {});
+        const tester = await ScreenshotTester(0,4, [], {});
         const result = await tester(component, name, {
-            path: path.join(`${src}`,`${helpers}`,`${screenshots}`,`${screenshotPath}`,`${name}`),
+            path: path.join(`${src}`,`${helpers}`,`${screenshots}`,`${screenshotPath}`,`${name}`)
         });
         return await result;
     }
@@ -25,7 +25,7 @@ export default class Utils {
         const helpers = 'helpers';
         const screenshots = 'screenshots';
         await this.page.waitFor(1000);
-        const tester = await ScreenshotTester(0,3, [], {});
+        const tester = await ScreenshotTester(0,4, [], {});
         const result = await tester(this.page, name, {
             path: path.join(`${src}`,`${helpers}`,`${screenshots}`,`${screenshotPath}`,`${name}`),
             fullPage: false,
@@ -43,7 +43,7 @@ export default class Utils {
 				let anyNextLocation = await this.page.$eval(row, (element) => element.innerText);
 				if (anyNextLocation === botName) {
 					break;
-				}	
+				}
 			}
 		}
 		return await i;
@@ -80,7 +80,7 @@ export default class Utils {
 		await this.page.waitFor(800);
 		await this.page.click(BOT_SECTION.SELECTORS.CREATE_FLOW_BOT);
         await this.page.click(BOT_SECTION.SELECTORS.CREATE_BOT_CONTINUE);
-		await this.page.click(BOT_SECTION.SELECTORS.CREATE_WEB_CHATBOT);
+		await this.page.click(BOT_SECTION.SELECTORS.CREATE_WEB_CHAT_BOT);
 		await this.page.waitFor(500);
 		await this.page.type(BOT_SECTION.SELECTORS.BOT_NAME_INPUT, botName);
 		await this.page.click(BOT_SECTION.SELECTORS.CREATE_BOT_BUTTON_AFTER_TYPE_NAME);

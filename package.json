@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "automation testing with puppeteer-mocha-chai",
   "scripts": {
-    "test": "mocha --require babel-core/register test/main.spec.js --timeout 15000000",
+    "test": "mocha testfile.js --reporter mochawesome --require babel-core/register test/main.spec.js --timeout 15000000",
     "eslint": "./node_modules/.bin/eslint src/ test/"
   },
   "keywords": [
@@ -16,14 +16,15 @@
     "chai": "^4.1.2",
     "lodash": "^4.17.11",
     "mocha": "^4.1.0",
+    "mochawesome": "^3.1.1",
     "puppeteer": "^0.13.0",
     "puppeteer-screenshot-tester": "^1.1.0"
   },
   "devDependencies": {
     "babel": "^6.3.13",
     "babel-core": "^6.26.3",
-    "babel-preset-env": "1.7.0",
     "babel-eslint": "^8.2.2",
+    "babel-preset-env": "1.7.0",
     "eslint": "^4.19.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-mocha": "^5.2.1",

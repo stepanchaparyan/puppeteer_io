@@ -6,3 +6,4 @@ package-lock.json
 .*.swp
 ._*
 !.babelrc
+/mochawesome-report
