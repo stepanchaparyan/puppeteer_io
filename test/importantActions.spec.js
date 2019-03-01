@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 import { expect } from 'chai';
-import FlowBot from '../src/pageObjects/importantActions';
+import FlowBot from '../src/pageObjects/importantActionsPO';
 import LoginPage from '../src/pageObjects/loginPagePO';
 
 let browser, page, loginPage, flowBot;

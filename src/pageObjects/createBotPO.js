@@ -144,4 +144,12 @@ export default class CreateBot {
 
 		return await true;
 	}
+
+	async deleteBot (botName, count = 1) {
+		for (let i = 0; i < count; i++) {
+			await this.utils.deleteBot(botName);
+        }
+		return await true;
+	}
+	
 }

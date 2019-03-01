@@ -67,4 +67,10 @@ describe('Simple Flow Bot', () => {
 			expect(await createBot.createBot69()).to.equal(true);
 		});
 	});
+	context.skip('deleteBot', () => {
+		it('delete', async () => {
+			expect(await createBot.deleteBot('testBotForC282', 10)).to.equal(true);
+		});
+	});
+
 });

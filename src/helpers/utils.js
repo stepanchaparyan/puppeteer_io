@@ -58,6 +58,7 @@ export default class Utils {
         //await this.compareScreenshots('flowBot','deletedBotNumber'); //! remove
 		await this.page.click(`body > app-root > div > iox-page-container > div > iox-bots > div > div:nth-child(${botNumber}) > iox-bot-item > div > div.bot-content > div.action-buttons.btn-group > button:nth-child(3) > i`);
         await this.page.click(BOT_SECTION.SELECTORS.YES_BUTTON_ON_DELETE);
+        return await true;
     }
 
     async reload () {
