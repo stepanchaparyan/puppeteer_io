@@ -23,11 +23,6 @@ describe('Simple Flow Bot', () => {
 	after(async () => {
 		await browser.close();
 	});
-	context('C282 - Check that when user creates more than 10 bots the website works as it was', () => {
-		it('C282 - Check that when user creates more than 10 bots the website works as it was', async () => {
-			expect(await createBot.createBotsAndCheckCount()).to.equal(true);
-		});
-	});
 	context('C284 - Check the Dashboard page opens after Login', () => {
 		it('C284 - Check the Dashboard page opens after Login', async () => {
 			expect(await createBot.getDefaultDashboardSectionTitle()).to.equal('Dashboard');
@@ -67,10 +62,15 @@ describe('Simple Flow Bot', () => {
 			expect(await createBot.createBot69()).to.equal(true);
 		});
 	});
+	context('C282 - Check that when user creates more than 10 bots the website works as it was', () => {
+		it('C282 - Check that when user creates more than 10 bots the website works as it was', async () => {
+			expect(await createBot.createBotsAndCheckCount()).to.equal(true);
+		});
+	});
+
 	context.skip('deleteBot', () => {
 		it('delete', async () => {
 			expect(await createBot.deleteBot('testBotForC282', 10)).to.equal(true);
 		});
 	});
-
 });

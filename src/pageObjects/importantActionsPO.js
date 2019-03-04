@@ -100,7 +100,8 @@ export default class FlowBot {
 		await this.page.waitFor(500);
 		await this.page.click(BOT_SECTION.SELECTORS.QUESTION_ON_ANSWER_GIRL);
 		await this.page.waitFor(500);
-		await this.page.select(BOT_SECTION.SELECTORS.FILL_WITH_EXISTING_QUESTION, 'Where are you from?');
+		await this.page.type(BOT_SECTION.SELECTORS.FILL_WITH_EXISTING_QUESTION, 'Where are you from?');
+		await this.utils.compareScreenshots('flowBot', 'bot4');
 		await this.page.click(BOT_SECTION.SELECTORS.QUESTION_SAVE_BUTTON);
 
 		//* URL
@@ -220,26 +221,22 @@ export default class FlowBot {
 
 		// await this.page.click(BOT_SECTION.SELECTORS.QUESTION_SAVE_BUTTON);
 
-
-
-
-		//! Train Bot
-		// await this.page.waitFor(500);
-		// await this.page.click(BOT_SECTION.SELECTORS.RUN);
-		// await this.page.waitFor(500);
-		// await this.page.click(BOT_SECTION.SELECTORS.TRAIN);
-		// await this.page.waitFor(600000); // 10 minutes
-
 		//? only for screenshots
-		// await this.page.evaluate(() => {document.querySelector('body > app-root > div > iox-page-container > div > iox-create > div > iox-conversation-tree > div > div.conversation-page > div > tree > tree-internal > ul > li > tree-internal:nth-child(9) > ul > li > tree-internal > ul > li > div > div.node-value.ng-star-inserted > div > div > button.btn.btn-primary.btn-xs.pull-right > span')
-		// 	.scrollIntoView();
-		// });
+		await this.page.evaluate(() => {document.querySelector('body > app-root > div > iox-page-container > div > iox-create > div > iox-conversation-tree > div > div.conversation-page > div > tree > tree-internal > ul > li > tree-internal:nth-child(9) > ul > li > tree-internal > ul > li > div > div.node-value.ng-star-inserted > div > div > button.btn.btn-primary.btn-xs.pull-right > span')
+			.scrollIntoView();
+		});
+		await this.utils.compareScreenshots('flowBot', 'bot1');
 
 
-		//await this.utils.compareScreenshots('flowBot', 'bot1');
+		// //! Train Bot
+		await this.page.waitFor(500);
+		await this.page.click(BOT_SECTION.SELECTORS.RUN);
+		await this.page.waitFor(500);
+		await this.page.click(BOT_SECTION.SELECTORS.TRAIN);
+		await this.page.waitFor(200000); // 2 minutes
 
-
-		await this.utils.deleteBot('testBot');
+	
+		//await this.utils.deleteBot('testBot');
 		return await true;
 	}
 
