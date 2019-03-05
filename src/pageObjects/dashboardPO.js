@@ -4,7 +4,6 @@ import {BOT_SECTION} from '../helpers/constants/botsSectionConstants.js';
 import {IFRAME} from '../helpers/constants/iframeConstants.js';
 import Utils from '../helpers/utils';
 
-
 export default class Dashboard {
     constructor(page, browser) {
         this.page = page;
@@ -16,7 +15,7 @@ export default class Dashboard {
     }
     async fourDivsColorsUI() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        const options = {x: 300, y: 110, width: 160, height: 400};
+        const options = {x: 300, y: 110, width: 160, height: 300};
         const noDiff = await this.utils.compareScreenshotsWithClip('dashboard','fourDivColors', options);
         return await noDiff;
     }
@@ -59,8 +58,8 @@ export default class Dashboard {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
         const messagesCountAfter = await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_7_DAYS_NUMBER, text => text.innerText);
-        console.log('before', messagesCountBefore);
-        console.log('after ', messagesCountAfter);
+        // console.log('before', messagesCountBefore);
+        // console.log('after ', messagesCountAfter);
         const addedOneMessage = Number(messagesCountBefore) + 1 === Number(messagesCountAfter) ? true : false;
         return await addedOneMessage;
     }
@@ -92,19 +91,14 @@ export default class Dashboard {
         const mainButton = await frame.$(IFRAME.SELECTORS.MAIN_BUTTON);
         await mainButton.click();
         await this.page.waitFor(2000);
-        //const agreement_checkbox = await frame.$(IFRAME.SELECTORS.AGREEMENT_CHECKBOX);
-        //await agreement_checkbox.click();
-        //const agreement_confirm_button = await frame.$(IFRAME.SELECTORS.AGREEMENT_CONFIRM_BUTTON);
-        //await agreement_confirm_button.click();
-        //await this.page.waitFor(1000);
         const google_button = await frame.$(IFRAME.SELECTORS.GOOGLE);
         await google_button.click();
         await this.page.waitFor(500);
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
         const messagesCountAfter = await this.page.$eval(DASHBOARD.SELECTORS.MESSAGES_PAST_30_DAYS_NUMBER, text => text.innerText);
-        console.log('before', messagesCountBefore);
-        console.log('after ', messagesCountAfter);
+        // console.log('before', messagesCountBefore);
+        // console.log('after ', messagesCountAfter);
         const addedOneMessage = Number(messagesCountBefore) + 1 === Number(messagesCountAfter) ? true : false;
         return await addedOneMessage;
     }
@@ -136,19 +130,14 @@ export default class Dashboard {
         const mainButton = await frame.$(IFRAME.SELECTORS.MAIN_BUTTON);
         await mainButton.click();
         await this.page.waitFor(2000);
-        //const agreement_checkbox = await frame.$(IFRAME.SELECTORS.AGREEMENT_CHECKBOX);
-        //await agreement_checkbox.click();
-        //const agreement_confirm_button = await frame.$(IFRAME.SELECTORS.AGREEMENT_CONFIRM_BUTTON);
-        //await agreement_confirm_button.click();
-        //await this.page.waitFor(1000);
         const google_button = await frame.$(IFRAME.SELECTORS.GOOGLE);
         await google_button.click();
         await this.page.waitFor(500);
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
         await this.page.waitFor(1000);
         const messagesCountAfter = await this.page.$eval(DASHBOARD.SELECTORS.SESSIONS_PAST_30_DAYS_NUMBER, text => text.innerText);
-        console.log('before', messagesCountBefore);
-        console.log('after ', messagesCountAfter);
+        // console.log('before', messagesCountBefore);
+        // console.log('after ', messagesCountAfter);
         const addedOneMessage = Number(messagesCountBefore) + 1 === Number(messagesCountAfter) ? true : false;
         return await addedOneMessage;
     }
@@ -174,6 +163,7 @@ export default class Dashboard {
 
     async platformStatusDivUI() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
+        await this.page.waitFor(1000);
         const platformStatusDiv = await this.page.$(DASHBOARD.SELECTORS.PLATFORM_STATUS_DIV);
         const noDiff = await this.utils.compareScreenshots('dashboard','platformStatus', platformStatusDiv);
         return await noDiff;
@@ -205,7 +195,7 @@ export default class Dashboard {
 
     async chatBotUI() {
         await this.page.click(NAVBAR.SELECTORS.DASHBOARD);
-        await this.page.waitFor(2000); // wait for iframe loading
+        await this.page.waitFor(4000); // wait for iframe loading
         const frame = await this.page.frames().find(frame => frame.url() === 'https://app.iox.bot/iox-chatbot/chatwindow');
         const frameDiv = await frame.$(DASHBOARD.BOT.FULLBOT);
         await this.utils.compareScreenshots('dashboard', 'dashboardChatBot', frameDiv);

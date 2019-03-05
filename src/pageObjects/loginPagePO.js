@@ -1,14 +1,19 @@
 import CREDS from '../../creds';
 import {LOGIN_PAGE} from '../helpers/constants/loginPageConstants.js';
+import args from 'minimist';
+const argv = args(process.argv.slice(2));
 
 export default class LoginPage {
 
     constructor(page) {
         this.page = page;
+        this.QA = 'https://qa-app.iox.bot';
+        this.PROD = 'https://app.iox.bot';
+        this.environment = argv._[1] === 'QA' ? this.QA : this.PROD;
     }
 
-    async open(component) {
-        return await this.page.goto(`https://app.iox.bot/${component}`);
+    async open() {
+        return await this.page.goto(`${this.environment}`);
     }
 
     async logIn() {

@@ -4,7 +4,6 @@ import CreateBot from '../src/pageObjects/createBotPO';
 import LoginPage from '../src/pageObjects/loginPagePO';
 
 let browser, page, loginPage, createBot;
-let dashboardPage = 'dashboard';
 const viewport = { width: 1020, height: 1080 };
 //const screenMaximized = {args: ['--start-maximized']};
 //const showSlowMotion = {headless: false, slowMo: 300};
@@ -17,7 +16,7 @@ describe('Simple Flow Bot', () => {
 		await page.setViewport(viewport);
 		createBot = new CreateBot(page, browser);
 		loginPage = new LoginPage(page);
-		await loginPage.open(dashboardPage);
+		await loginPage.open();
 		await loginPage.logIn();
 	});
 	after(async () => {

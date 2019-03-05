@@ -151,5 +151,5 @@ export default class CreateBot {
         }
 		return await true;
 	}
-	
+
 }

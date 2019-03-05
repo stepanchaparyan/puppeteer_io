@@ -1,4 +1,4 @@
-//import './dashboard.spec';
+import './dashboard.spec';
 import './importantActions.spec';
-//import './createBot.spec';
+import './createBot.spec';
 
